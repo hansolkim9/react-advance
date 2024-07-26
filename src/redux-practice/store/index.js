@@ -1,18 +1,10 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// 액션 타입 상수
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const MULTIPLY = 'MULTIPLY';
-export const TOGGLE = 'TOGGLE';
-
-
 // 관리할 초기 상태값 객체
 const initialCountState = {
     counter: 0,
-    showCounter: true
+    showCounter: true,
 };
-
 
 // reducer: 상태 변경을 위한 순수 함수 - 부수 효과(비동기코드...)가 없는 함수
 // 카운터 상태 관리를 위한 리듀서 정의
@@ -40,6 +32,8 @@ const counterSlice = createSlice({
             state.counter--;
         },
         multiply(state, action) {
+            // console.log('state: ', state);
+            // console.log('action: ', action);
             state.counter *= action.payload;
         },
         toggle(state) {
