@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ReduxCounter.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {DECREMENT, INCREMENT} from "../store";
+import {DECREMENT, INCREMENT, MULTIPLY} from "../store";
 
 const ReduxCounter = () => {
 
@@ -24,6 +24,10 @@ const ReduxCounter = () => {
         dispatch({ type: DECREMENT })
     }
 
+    const multiplyHandler = e => {
+        dispatch({ type: MULTIPLY, payload: 2 });
+    }
+
     return (
         <main className={styles.counter}>
             <h1>Redux Counter</h1>
@@ -32,6 +36,7 @@ const ReduxCounter = () => {
             <div>
                 <button onClick={increaseHandler}>Increment</button>
                 <button onClick={decreaseHandler}>Decrement</button>
+                <button onClick={multiplyHandler}>IncrementDouble</button>
             </div>
 
             <button>Toggle Counter</button>
